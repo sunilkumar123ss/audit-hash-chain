@@ -1,0 +1,8 @@
+{
+  "slug": "audit-hash-chain",
+  "title": "Audit hash chain",
+  "description": "Detect changes and reordering in canonical JSON records, with optional trusted head anchoring.",
+  "category": "systems",
+  "demo_args": [],
+  "expected_exit": 0
+}
