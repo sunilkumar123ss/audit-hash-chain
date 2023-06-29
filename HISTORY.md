@@ -4,7 +4,7 @@ This reference implementation and all of the following milestone commits were pr
 
 **Every recorded author and committer date in this timeline is synthetic. These dates are not evidence that the code was written, tested, deployed, or used professionally in the past.**
 
-This snapshot is milestone 2 of 15. It is an incomplete tutorial stage; source, fixtures, tests, the CLI, and automation are introduced progressively.
+This snapshot is milestone 3 of 15. It is an incomplete tutorial stage; source, fixtures, tests, the CLI, and automation are introduced progressively.
 
 The progression decomposes already-completed October 2026 code into meaningful additions. It is not recovered original development history. Publication time is separate from the synthetic Git timestamps.
 
@@ -14,7 +14,7 @@ The progression decomposes already-completed October 2026 code into meaningful a
 | --- | --- | --- |
 | 1 | 2023-01-12T12:28:08+05:30 | add repository metadata and Python ignore rules (present) |
 | 2 | 2023-04-07T18:04:45+05:30 | add module imports, constants, and scope documentation (present) |
-| 3 | 2023-06-29T19:40:31+05:30 | encode audit records and derive chained digests (later stage) |
+| 3 | 2023-06-29T19:40:31+05:30 | encode audit records and derive chained digests (present) |
 | 4 | 2023-10-10T11:48:21+05:30 | validate record order, hashes, and optional trusted head anchors (later stage) |
 | 5 | 2023-12-08T18:13:07+05:30 | append copied canonical payloads to the audit chain (later stage) |
 | 6 | 2024-01-17T14:44:59+05:30 | add the deterministic demonstration and command-line entry point (later stage) |
