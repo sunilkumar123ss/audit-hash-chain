@@ -23,3 +23,18 @@ def verify(records, expected_head=None):
     if expected_head is not None and previous != expected_head:
         raise ValueError('Trusted head mismatch')
     return previous
+
+class AuditChain:
+
+    def __init__(self):
+        self.records = []
+
+    def append(self, payload):
+        if not isinstance(payload, dict):
+            raise ValueError('Payload must be a JSON object')
+        copied = json.loads(canonical(payload))
+        previous = verify(self.records)
+        index = len(self.records)
+        row = {'index': index, 'previous': previous, 'payload': copied, 'hash': hash_body(index, previous, copied)}
+        self.records.append(row)
+        return row['hash']
