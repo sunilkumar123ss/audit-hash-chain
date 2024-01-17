@@ -38,3 +38,12 @@ class AuditChain:
         row = {'index': index, 'previous': previous, 'payload': copied, 'hash': hash_body(index, previous, copied)}
         self.records.append(row)
         return row['hash']
+
+def demo():
+    chain = AuditChain()
+    chain.append({'event': 'synthetic-job-created', 'id': 'a'})
+    head = chain.append({'event': 'synthetic-job-completed', 'id': 'a'})
+    return {'records': chain.records, 'trusted_head_example': head, 'verified': verify(chain.records, head) == head}
+if __name__ == '__main__':
+    argparse.ArgumentParser(description=__doc__).parse_args()
+    print(json.dumps(demo(), indent=2))
