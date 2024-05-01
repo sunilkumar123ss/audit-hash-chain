@@ -20,6 +20,11 @@ class AuditTests(unittest.TestCase):
         c = self.chain()
         self.assertEqual(m.verify(c.records), c.records[-1]['hash'])
 
+    def test_payload_edit_detected(self):
+        c = self.chain()
+        c.records[0]['payload']['event'] = 'changed'
+        with self.assertRaises(ValueError):
+            m.verify(c.records)
 
 
 
