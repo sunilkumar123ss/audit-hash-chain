@@ -26,6 +26,10 @@ class AuditTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.verify(c.records)
 
+    def test_reordering_detected(self):
+        c = self.chain()
+        with self.assertRaises(ValueError):
+            m.verify(c.records[::-1])
 
 
 
