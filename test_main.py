@@ -31,6 +31,12 @@ class AuditTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.verify(c.records[::-1])
 
+    def test_anchor_detects_truncation(self):
+        c = self.chain()
+        head = c.records[-1]['hash']
+        with self.assertRaises(ValueError):
+            m.verify(c.records[:-1], head)
+        self.assertEqual(m.verify(c.records[:-1]), c.records[0]['hash'])
 
 
 if __name__ == '__main__':
