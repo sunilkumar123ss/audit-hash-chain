@@ -38,6 +38,14 @@ class AuditTests(unittest.TestCase):
             m.verify(c.records[:-1], head)
         self.assertEqual(m.verify(c.records[:-1]), c.records[0]['hash'])
 
+    def test_payload_is_copied_and_keys_canonical(self):
+        a = m.AuditChain()
+        b = m.AuditChain()
+        payload = {'x': 1, 'y': 2}
+        head = a.append(payload)
+        payload['x'] = 9
+        self.assertEqual(head, b.append({'y': 2, 'x': 1}))
+        self.assertEqual(m.verify(a.records), head)
 
 if __name__ == '__main__':
     unittest.main()
