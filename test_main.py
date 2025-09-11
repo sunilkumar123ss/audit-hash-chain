@@ -47,5 +47,9 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(head, b.append({'y': 2, 'x': 1}))
         self.assertEqual(m.verify(a.records), head)
 
+    def test_empty_and_nonfinite(self):
+        self.assertEqual(m.verify([]), m.ZERO)
+        with self.assertRaises(ValueError):
+            m.AuditChain().append({'x': float('nan')})
 if __name__ == '__main__':
     unittest.main()
